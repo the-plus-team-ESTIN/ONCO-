@@ -1,0 +1,90 @@
+<RCC>
+  <qresource prefix="fonts">
+    <file>Fonts/FontsFree-Net-Telegraf-Regular.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Black.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-BlackItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Bold.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-BoldItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-ExtraBold.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-ExtraBoldItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-ExtraLight.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-ExtraLightItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Italic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Light.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-LightItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Medium.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-MediumItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Regular.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-SemiBold.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-SemiBoldItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-Thin.ttf</file>
+    <file>Fonts/Montserrat_Alternates/MontserratAlternates-ThinItalic.ttf</file>
+    <file>Fonts/Montserrat_Alternates/OFL.txt</file>
+    <file>Fonts/Mulish/Mulish-Italic-VariableFont_wght.ttf</file>
+    <file>Fonts/Mulish/Mulish-VariableFont_wght.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Black.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-BlackItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Bold.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-BoldItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-ExtraBold.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-ExtraBoldItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-ExtraLight.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-ExtraLightItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Italic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Light.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-LightItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Medium.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-MediumItalic.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-Regular.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-SemiBold.ttf</file>
+    <file>Fonts/Mulish/static/Mulish-SemiBoldItalic.ttf</file>
+  </qresource>
+  <qresource prefix="icons">
+    <file>qtResousre/icons/white/Artboard 2.png</file>
+    <file>qtResousre/icons/white/home (2).png</file>
+    <file>qtResousre/icons/white/search.png</file>
+    <file>qtResousre/icons/white/wave-graph.png</file>
+    <file>qtResousre/icons/white/back.png</file>
+    <file>qtResousre/icons/white/arrow-down-sign-to-navigate.png</file>
+    <file>qtResousre/icons/white/left-arrow.png</file>
+    <file>qtResousre/icons/white/right-arrow.png</file>
+    <file>qtResousre/icons/white/Artboard 1.png</file>
+    <file>qtResousre/icons/white/businessman (2).png</file>
+    <file>qtResousre/icons/white/calendar (3).png</file>
+    <file>qtResousre/icons/white/calendar (4).png</file>
+    <file>qtResousre/icons/white/info.png</file>
+    <file>qtResousre/icons/white/businessman (1).png</file>
+    <file>qtResousre/icons/white/businessman.png</file>
+    <file>qtResousre/icons/white/doctor (3).png</file>
+    <file>qtResousre/icons/white/doctor (4).png</file>
+    <file>qtResousre/icons/white/statistics.png</file>
+    <file>qtResousre/icons/white/calendar (1).png</file>
+    <file>qtResousre/icons/white/calendar (2).png</file>
+    <file>qtResousre/icons/white/home (1).png</file>
+    <file>qtResousre/icons/white/doctor (2).png</file>
+    <file>qtResousre/icons/white/doctor2.png</file>
+    <file>qtResousre/icons/white/Chevron.png</file>
+    <file>qtResousre/icons/white/Chevrondown.png</file>
+    <file>qtResousre/icons/white/patient.png</file>
+    <file>qtResousre/icons/white/file.png</file>
+    <file>qtResousre/icons/white/add.png</file>
+    <file>qtResousre/icons/white/appointment.png</file>
+    <file>qtResousre/icons/white/calendar.png</file>
+    <file>qtResousre/icons/white/close.png</file>
+    <file>qtResousre/icons/white/doctor (1).png</file>
+    <file>qtResousre/icons/white/doctor.png</file>
+    <file>qtResousre/icons/white/graph.png</file>
+    <file>qtResousre/icons/white/home.png</file>
+    <file>qtResousre/icons/white/information-button.png</file>
+    <file>qtResousre/icons/white/login (1).png</file>
+    <file>qtResousre/icons/white/login.png</file>
+    <file>qtResousre/icons/white/medical.png</file>
+    <file>qtResousre/icons/white/plus.png</file>
+    <file>qtResousre/icons/white/printer.png</file>
+    <file>qtResousre/icons/white/profile.png</file>
+    <file>qtResousre/icons/white/search-interface-symbol.png</file>
+    <file>qtResousre/icons/white/stats.png</file>
+    <file>qtResousre/icons/white/user (1).png</file>
+    <file>qtResousre/icons/white/user.png</file>
+  </qresource>
+</RCC>
