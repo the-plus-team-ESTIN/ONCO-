@@ -80,42 +80,24 @@ class Core:
 		database.close()
 		return 0
 
-	def _UPDATE_USER(self, grade="", unite="", tel="", user="", password=""):
+	def _UPDATE_USER(self, MEDECIN:Medecin):
 		#initialise database
 		database = sqlite3.connect(_DATA_BASE)
 		cr = database.cursor()
 		
-		#globals
-		global _MEDECIN
-		
-		#Update values for the signed in account
-		if grade:
-			_MEDECIN.grade = grade
-			#print(_MEDECIN.grade)
-		if unite:
-			_MEDECIN.unite = unite
-			#print(_MEDECIN.unite)
-		if tel:
-			_MEDECIN.num_tele = tel
-		if user:
-			_MEDECIN.nom_utilisateur = user
-			#print(_MEDECIN.nom_utilisateur)
-		if password:
-			_MEDECIN.mdp = password
-			#print(_MEDECIN.mdp)
-		
 		#update database
 		instruction_set = [
-			f"update Medecin set grade = \"{_MEDECIN.grade}\" , unite = \"{_MEDECIN.unite}\" , num_tele = \"{_MEDECIN.num_tele}\" , nom_utilisateur = \"{_MEDECIN.nom_utilisateur}\" , where ID = {_MEDECIN.ID}", 
-			f"update MotDePasse set mot_de_passe={_MEDECIN.mdp} where ID={_MEDECIN.ID}"
+			f"update Medecin set nom = \"{MEDECIN.nom}\", prenom = \"{MEDECIN.prenom}\", grade = \"{MEDECIN.grade}\" , unite = \"{MEDECIN.unite}\" , num_tele = \"{MEDECIN.num_tele}\" , nom_utilisateur = \"{MEDECIN.nom_utilisateur}\" where ID = {MEDECIN.ID}", 
+			f"update MotDePasse set mot_de_passe=\"{MEDECIN.mdp}\" where ID={MEDECIN.ID}"
 		]
 		for i in instruction_set:
+			print(i)
 			cr.execute(i)
 
 		database.commit()
 		database.close()
 		return 0
-
+	
 	def _SIGN_IN(self, user, password):
 		
 		"""
@@ -149,7 +131,11 @@ class Core:
 				if t[0]:
 					return (-2, None)
 				else:
-					raise sqlite3.OperationalError
+					if password == _PASSWORD:
+						return (-1, None)
+					else:
+						return (-3, None)
+
 
 			except sqlite3.OperationalError:
 				if password == _PASSWORD:
@@ -306,10 +292,11 @@ class Core:
 		#insert to database
 		cr.execute(f"select * from Patients where ID={ID_patient}")
 		result2 = cr.fetchone()
-		if len(result2) == 0:
+		print("result2:", result2)
+		if result2 == None:
 			return -1
 		else:
-			if (result2[0][9] < date):
+			if (result2[9] < date):
 				#session date less than entry date
 				return -2
 
@@ -532,12 +519,13 @@ class Core:
 		db = sqlite3.connect(_DATA_BASE)
 		cr = db.cursor()
 		paths = PATIENT.pathologies.split("/")
-		print(paths)
 		toReturn = []
-		if paths != [""]:
-			for i in paths :
-				cr.execute(f"select * from Pathologies where ID = '{int(i)}'")
+		paths.pop()
+		if paths != []:
+			for i in paths:
+				cr.execute(f"select * from Pathologies where ID = {int(i)}")
 				path = cr.fetchone()
+				print(path)
 				toReturn.append(path[1] + " " + path[2] + " " + path[3])
 		db.close()
 		return toReturn
@@ -546,16 +534,20 @@ class Core:
 		db = sqlite3.connect(_DATA_BASE)
 		cr = db.cursor()
 		paths = pathologies.split("/")
+		print("paths:", paths)
 		toReturn = []
 		if paths != [""]:
-			for i in paths:
-				cr.execute(f"select classe, code from Pathologies where ID = {int(i)}")
+			for i in paths[:-1]:
+				x = i.replace("[", "").replace("]", "").replace("\\t", "").replace("'", "").replace(",", "")
+				print("x", x)
+				cr.execute(f"select classe, code from Pathologies where ID = {int(x)}")
 				path = cr.fetchone()
 				toReturn.append(path[0]+ path[1])
 		db.close()
 		return toReturn
 
 	def getWilaya(self, PATIENT:Patient):
+		print("wilaya:", PATIENT.wilaya)
 		db = sqlite3.connect(_DATA_BASE)
 		cr = db.cursor()
 		cr.execute(f"select * from Wilayas where Code={PATIENT.wilaya}")
@@ -580,10 +572,10 @@ class Core:
 		
 		cr.execute(i1)
 		formes = cr.fetchall()
-		#print(formes)
+		print(formes)
 		fetched = []
 		for i in formes:
-			cr.execute(t:=i2(i[0]))
+			cr.execute(i2(i[0]))
 			#print(t)
 			fetched+=cr.fetchall()
 		
@@ -600,8 +592,38 @@ class Core:
 		db = sqlite3.connect(_DATA_BASE)
 		cr = db.cursor()
 		cr.execute(f"select * from Medicaments where libelle=\"{med}\" and forme={form[:form.index('-')]}")
-		return cr.fetchone()[0]
-	
+		res =  cr.fetchone()[0]
+		db.close()
+		return res
+
+	def getMedicineFromId(self, ID):
+		print("id:", ID)
+		db = sqlite3.connect(_DATA_BASE)
+		cr = db.cursor()
+
+		cr.execute(f"select * from Medicaments where ID={ID}")
+		res1 = cr.fetchone()
+		res = ""
+		print("res1:", res1)
+		if res1 != None:
+			res = res1[1]
+			cr.execute(f"select * from Formes where ID={res1[2]}")
+			res2 = cr.fetchone()
+			if res2[1] != "#":
+				res += " " + res2[1]
+				
+			if res2[2] != "#":
+				res += " " + res2[2]
+				
+			if res2[3] != "#":
+				res += " " + res2[3]
+				
+			if res2[4] != "#":
+				res += " " + res2[4]
+		
+		db.close()
+		return res
+
 	def getAllWilayas(self):
 		db = sqlite3.connect(_DATA_BASE)
 		cr = db.cursor()
@@ -805,24 +827,28 @@ class Core:
 		cr = db.cursor()
 		cr.execute("select nom from Wilayas")
 		wilayas = [x[0] for x in cr.fetchall()]
-		cr.execute(f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree < '{date_1}') and Sexe = {1}  ")
+		instruction = f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree < '{date_1}') and Sexe = {1}  "
 		if unit != 0:
 			instruction += f" and Unite = {unit} "
+		cr.execute(instruction)
 		HOMME_AC = cr.fetchone()[0]
 
-		cr.execute(f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree between '{date_1}'and '{date_2}') and Sexe = {1}  ")
+		instruction = f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree between '{date_1}'and '{date_2}') and Sexe = {1}  "
 		if unit != 0:
 			instruction += f" and Unite = {unit} "
+		cr.execute(instruction)
 		HOMME_NC = cr.fetchone()[0]
 
-		cr.execute(f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree < '{date_1}') and Sexe = {0} ")
+		instruction = f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree < '{date_1}') and Sexe = {0} "
 		if unit != 0:
 			instruction += f" and Unite = {unit} "
+		cr.execute(instruction)
 		FEMME_AC = cr.fetchone()[0]
 
-		cr.execute(f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree between '{date_1}'and '{date_2}') and Sexe = {0} ")
+		instruction = f"select count() from Patients where (Wilaya =  {wilaya}) and (Date_Entree between '{date_1}'and '{date_2}') and Sexe = {0} "
 		if unit != 0:
 			instruction += f" and Unite = {unit} "
+		cr.execute(instruction)
 		FEMME_NC = cr.fetchone()[0]
 
 		TOTAL_AC = HOMME_AC + FEMME_AC

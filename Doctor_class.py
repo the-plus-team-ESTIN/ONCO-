@@ -15,3 +15,8 @@ class Medecin :
 
     def UNITE(self):
         return ["Thoracique", "Gynécologie", "Digestive"][self.unite-1]
+
+    def __eq__(self, __o: object) -> bool:
+        return self.ID == __o.ID if __o != None else False
+
+        

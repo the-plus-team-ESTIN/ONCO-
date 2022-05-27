@@ -120,7 +120,7 @@ def printListDoctors(file, DOC_LIST):
         sheet.cell(row = i, column = 1).value = med.nom
         sheet.cell(row = i, column = 2).value = med.prenom
         sheet.cell(row = i, column = 3).value = med.UNITE()
-        sheet.cell(row = i, column = 4).value = med.grade
+        sheet.cell(row = i, column = 4).value = med.GRADE()
         print(med)
         i += 1
     #filename="ListeDesMedecins" + str(dt.date.today()) + "".xslx"
@@ -187,7 +187,7 @@ def printPatient(program, file, PATIENT, LISTE_SEANCE, LISTE_TESTS):
     STitre(pdf, 22, 'Prénom :', 0, 'L','BU')
     STitre(pdf, 39, PATIENT.prenom, 0, 'C','')
     STitre(pdf, 74, 'Date d\'entrée :', 0, 'R', 'BU')
-    STitre(pdf, 35, PATIENT.date_entree.isoformat(), 1, 'C', '')
+    STitre(pdf, 35, PATIENT.date_entree, 1, 'C', '')
     pdf.ln(5)
     STitre(pdf, 74, 'Pathologies :', 1, 'L', 'BU')
     paths = program.getPathologies(PATIENT)
@@ -199,7 +199,7 @@ def printPatient(program, file, PATIENT, LISTE_SEANCE, LISTE_TESTS):
                 STitre(pdf, 0, path[(i * 88):((i + 1) * 88)], 1, 'L','')
         pdf.ln(5)
     STitre(pdf, 40, 'Date de naissance :', 0, 'L','BU')
-    STitre(pdf, 45, PATIENT.date_naissance.isoformat(), 1, 'C','')
+    STitre(pdf, 45, PATIENT.date_naissance, 1, 'C','')
     STitre(pdf, 16, 'Sexe :', 0, 'L','BU')
     STitre(pdf, 30, PATIENT.SEXE(), 1, 'C','')
     STitre(pdf, 16, 'Age :', 0, 'L','BU')

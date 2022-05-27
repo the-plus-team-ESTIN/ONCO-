@@ -5,9 +5,7 @@ import sys
 from datetime import date
 import PyQt5
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 from screeninfo import get_monitors
-from PyQt5.QtGui import QFontDatabase
 
 class MainScreen(object):
 	def setupUi(self, MainWindow, program):
@@ -762,6 +760,7 @@ class MainScreen(object):
 		self.labelCurrentDate.setObjectName("labelCurrentDate")
 		self.verticalLayout_4.addWidget(self.labelCurrentDate, 0, QtCore.Qt.AlignHCenter)
 		self.currentDate = QtWidgets.QDateEdit(self.displayDateframe)
+		self.currentDate.setDisplayFormat("dd/MM/yyyy")
 		self.currentDate.setMinimumSize(QtCore.QSize(67, 36))
 		self.currentDate.setMaximumSize(QtCore.QSize(103, 37))
 		font = QtGui.QFont()
@@ -1908,6 +1907,7 @@ class MainScreen(object):
 		self.currentDate_2 = QtWidgets.QDateEdit(self.displayDateframe_2)
 		self.currentDate_2.setMinimumSize(QtCore.QSize(67, 36))
 		self.currentDate_2.setMaximumSize(QtCore.QSize(121, 37))
+		self.currentDate_2.setDisplayFormat("dd/MM/yyyy")
 		font = QtGui.QFont()
 		font.setFamily("Montserrat Alternates")
 		font.setPointSize(10)
@@ -3810,6 +3810,7 @@ class MainScreen(object):
 		self.dateDebutLabel.setObjectName("dateDebutLabel")
 		self.horizontalLayout_32.addWidget(self.dateDebutLabel)
 		self.dateDebut = QtWidgets.QDateEdit(self.debutFr)
+		self.dateDebut.setDisplayFormat("dd/MM/yyyy")
 		self.dateDebut.setMinimumSize(QtCore.QSize(100, 31))
 		palette = QtGui.QPalette()
 		brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
@@ -3956,6 +3957,7 @@ class MainScreen(object):
 		self.dateFinLabel.setObjectName("dateFinLabel")
 		self.horizontalLayout_31.addWidget(self.dateFinLabel)
 		self.dateFin = QtWidgets.QDateEdit(self.finFrm)
+		self.dateFin.setDisplayFormat("dd/MM/yyyy")
 		self.dateFin.setMinimumSize(QtCore.QSize(100, 31))
 		palette = QtGui.QPalette()
 		brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
@@ -5352,6 +5354,7 @@ class MainScreen(object):
 		self.label_18.setObjectName("label_18")
 		self.gridLayout.addWidget(self.label_18, 9, 0, 1, 1)
 		self.dateEdit_3 = QtWidgets.QDateEdit(self.frame_12)
+		self.dateEdit_3.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit_3.setMinimumSize(QtCore.QSize(0, 30))
 		self.dateEdit_3.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit_3.setBaseSize(QtCore.QSize(0, 0))
@@ -5528,6 +5531,7 @@ class MainScreen(object):
 		self.verticalLayout_50.addWidget(self.ajouterTest, 0, QtCore.Qt.AlignRight)
 		self.gridLayout.addWidget(self.frame_18, 23, 6, 1, 2)
 		self.dateEdit = QtWidgets.QDateEdit(self.frame_12)
+		self.dateEdit.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit.setMinimumSize(QtCore.QSize(0, 30))
 		self.dateEdit.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit.setBaseSize(QtCore.QSize(0, 0))
@@ -5556,6 +5560,8 @@ class MainScreen(object):
 		self.spinBox_2.setObjectName("spinBox_2")
 		self.gridLayout.addWidget(self.spinBox_2, 2, 1, 1, 2)
 		self.dateEdit_2 = QtWidgets.QDateEdit(self.frame_12)
+		
+		self.dateEdit_2.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit_2.setMinimumSize(QtCore.QSize(0, 30))
 		self.dateEdit_2.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit_2.setBaseSize(QtCore.QSize(0, 0))
@@ -5710,6 +5716,8 @@ class MainScreen(object):
 		self.suprimerPatientBtn.setObjectName("suprimerPatientBtn")
 		self.gridLayout.addWidget(self.suprimerPatientBtn, 26, 7, 1, 1)
 		self.dateEdit_4 = QtWidgets.QDateEdit(self.frame_12)
+		
+		self.dateEdit_4.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit_4.setMinimumSize(QtCore.QSize(125, 30))
 		self.dateEdit_4.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit_4.setSizeIncrement(QtCore.QSize(0, 0))
@@ -6608,6 +6616,8 @@ class MainScreen(object):
 		self.label_45.setObjectName("label_45")
 		self.gridLayout_3.addWidget(self.label_45, 4, 1, 1, 1)
 		self.dateEdit_5 = QtWidgets.QDateEdit(self.frame_20)
+		
+		self.dateEdit_5.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit_5.setMinimumSize(QtCore.QSize(0, 30))
 		self.dateEdit_5.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit_5.setBaseSize(QtCore.QSize(0, 0))
@@ -6866,6 +6876,8 @@ class MainScreen(object):
 		self.label_67.setObjectName("label_67")
 		self.gridLayout_5.addWidget(self.label_67, 18, 5, 1, 1)
 		self.dateEdit_6 = QtWidgets.QDateEdit(self.frame_23)
+		
+		self.dateEdit_6.setDisplayFormat("dd/MM/yyyy")
 		self.dateEdit_6.setMinimumSize(QtCore.QSize(0, 30))
 		self.dateEdit_6.setMaximumSize(QtCore.QSize(125, 16777215))
 		self.dateEdit_6.setBaseSize(QtCore.QSize(0, 0))
@@ -6943,6 +6955,7 @@ class MainScreen(object):
 		self.changeSubWindow(program, 0)
 		self.tableWidget.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
 		self.tableWidget_2.setEditTriggers(QtWidgets.QTableWidget.NoEditTriggers)
+	
 	def retranslateUi(self, MainWindow):
 		_translate = QtCore.QCoreApplication.translate
 		MainWindow.setWindowTitle(_translate("MainWindow", "ONCO+"))
@@ -7356,12 +7369,12 @@ class MainScreen(object):
 		self.logOut_6.clicked.connect(lambda: program.logout())
 
 
-		self.userButton_1.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
-		self.userButton_2.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
-		self.userButton_3.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
-		self.userButton_4.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
-		self.userButton_5.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
-		self.userButton_6.clicked.connect(lambda: self.changeSubWindow(program, 7, 0))
+		self.userButton_1.clicked.connect(lambda: program.selectUser())
+		self.userButton_2.clicked.connect(lambda: program.selectUser())
+		self.userButton_3.clicked.connect(lambda: program.selectUser())
+		self.userButton_4.clicked.connect(lambda: program.selectUser())
+		self.userButton_5.clicked.connect(lambda: program.selectUser())
+		self.userButton_6.clicked.connect(lambda: program.selectUser())
 
 		#main functionalities 
 		self.ajouterPatientBtn.clicked.connect(lambda: self.changeSubWindow(program, 6, 2))
@@ -7428,14 +7441,14 @@ class MainScreen(object):
 		self.returnToHomeBtn_2.clicked.connect(lambda: self.changeSubWindow(program, 0))
 		self.ajouterPatientBtn_4.clicked.connect(lambda: program.addNewDoctor())
 		self.suprimerPatientBtn_2.clicked.connect(lambda: program.confirmDeletion(1))
-		self.enregBtn_2.clicked.connect(lambda: program.modifyPatient())
+		self.enregBtn_2.clicked.connect(lambda: program.modifyDoctor())
 		self.modiferBtn.clicked.connect(lambda: self.changeSubWindow(program, 7, 1))
+		self.pushButton.clicked.connect(lambda: self.toggleVisibility())
 		
-		
+		self.critereDrop.currentIndexChanged.connect(lambda: self.toggleExtractButton())
 		#Page 8 "add new session"
 		self.returnToPrevBtn_2.clicked.connect(lambda: program.goBack()if program.lastIndex[1]!=6 else self.changeSubWindow(program, 6, 0))
 		self.returnToHomeBtn_3.clicked.connect(lambda: self.changeSubWindow(program, 0))
-		self.ajouterMedcBtn.clicked.connect(lambda: program.openMedicineList())
 		self.ajouterPatientBtn_5.clicked.connect(lambda: program.addNewRendezVous())
 		self.enregBtn_3.clicked.connect(lambda: program.modifyRendezVous())
 		self.suprimerPatientBtn_4.clicked.connect(lambda: program.confirmDeletion(2))
@@ -7465,7 +7478,8 @@ class MainScreen(object):
 		if index == 1:
 			self.rendezVousFrame.hide()
 			self.calendarWidget.setSelectedDate(date.today())
-		
+		if index == 4:
+			self.critereDrop.setCurrentIndex(0)
 		if index > 5:
 			self.leftBar.hide()
 		else:
@@ -7611,9 +7625,14 @@ class MainScreen(object):
 		if index == 7:
 			if mode == 0:
 				self.AjouterMedPageTitre.setText("Informations sur le médecin" if program.user != program.selectedDoctor else "Profil Personnel")
+				if program.user == program.selectedDoctor:
+					self.pushButton.setEnabled(True)
+					self.suprimerPatientBtn_2.hide()
+				else:
+					self.pushButton.setEnabled(False)
+					self.suprimerPatientBtn_2.show()
 				#Buttons
 				self.ajouterPatientBtn_4.hide()
-				self.suprimerPatientBtn_2.show()
 				self.enregBtn_2.hide()
 				self.modiferBtn.show()
 				
@@ -7629,8 +7648,11 @@ class MainScreen(object):
 			elif mode == 1:
 				
 				self.AjouterMedPageTitre.setText("Modifier un médecin" if program.user != program.selectedDoctor else "Modifier les données personnelles")
+				if program.user == program.selectedDoctor:
+					self.suprimerPatientBtn_2.hide()
+				else:
+					self.suprimerPatientBtn_2.show()
 				self.ajouterPatientBtn_4.hide()
-				self.suprimerPatientBtn_2.show()
 				self.enregBtn_2.show()
 				self.modiferBtn.hide()
 				
@@ -7657,9 +7679,10 @@ class MainScreen(object):
 				self.comboBox_10.setEnabled(True)
 				self.comboBox_5.setEnabled(True)
 
-
 		if index == 8:
+			self.ajouterMedcBtn.clicked.connect(lambda: program.openMedicineList(mode))
 			if mode == 0:
+				
 				#buttons
 				self.ajouterMedcBtn.show()
 				self.ajouterMedcBtn.setText("plus...")
@@ -7672,6 +7695,7 @@ class MainScreen(object):
 				self.AjouterRendezVousPageTitre.setText("Informations de la séance")
 				self.spinBox_4.setEnabled(False)
 				self.dateEdit_5.setEnabled(False)
+				self.ajouterMedcBtn.setText("Plus...")
 				self.comboBox_15.setEnabled(False)
 				self.doubleSpinBox_2.setEnabled(False)
 				self.comboBox_13.setEnabled(False)
@@ -7679,7 +7703,6 @@ class MainScreen(object):
 				self.textEdit_2.setEnabled(False)
 			
 			if mode == 1:
-				
 				#buttons
 				self.ajouterMedcBtn.show()
 				self.ajouterMedcBtn.setText("Ajouter...")
@@ -7705,6 +7728,8 @@ class MainScreen(object):
 				self.ajouterMedcBtn.setText("Ajouter...")
 				self.ajouterPatientBtn_5.show()
 				self.enregBtn_3.hide()
+
+				self.dateEdit_5.setDate(date.today())
 				self.suprimerPatientBtn_4.hide()
 				self.suprimerPatientBtn_5.hide()
 				self.modifierBtn_2.hide()
@@ -7770,13 +7795,13 @@ class MainScreen(object):
 			self.ageFrame.hide()
 			self.pathologieSelect.hide()
 			self.regionSelect.hide()
-	
+		self.toggleExtractButton()
+
 	def toggleTableOn(self, program):
 		program.loadData(1)
 		self.rendezVousFrame.setHidden(False)
 
 	def changeStatTable(self, program, index):
-		#print(index)
 		self.tabsStack.setCurrentIndex(index)
 	
 	def stats(self):
@@ -7799,7 +7824,20 @@ class MainScreen(object):
 		for t in tables:
 			col = t.columnCount()	
 			t.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
-		
+	
+	def toggleVisibility(self):
+		if self.lineEdit_6.echoMode() == QtWidgets.QLineEdit.Normal:
+			self.lineEdit_6.setEchoMode(QtWidgets.QLineEdit.Password)
+		else:
+			self.lineEdit_6.setEchoMode(QtWidgets.QLineEdit.Normal)
+
+	def toggleExtractButton(self):
+		x = self.critereDrop.currentIndex()
+		if x == 1:
+			self.extraireListeBtn_4.show()
+		else:
+			self.extraireListeBtn_4.hide()
+
 class SignInPage(object):
 	def setupUi(self, MainWindow, program):
 		MainWindow.setObjectName("MainWindow")
@@ -8844,11 +8882,14 @@ class PathologiesDialog(object):
 
 		if p != None:
 			l = program.core.getPathologies(p)
-			for i in range(len(lp:=p.pathologies.split("/"))):
-				self.listWidget.addItem(l[i]+"\t"+lp[i])
-		else:
-			l = program.pathologiesList
-			#print(l)
+			if l != []:
+				for i in range(len(lp:=p.pathologies.split("/"))-1):
+					self.listWidget.addItem(l[i]+"\t"+lp[i])
+			
+		l1 = program.pathologiesList
+		print("l1:", l1)
+		for i in range(len(l1)):
+			self.listWidget.addItem(str(self.comboBox.itemText(int(x := l1[i].replace("\t", "").replace("/", ""))))+"\t"+x)
 			
 class MedicineDialog(object):
 	def setupUi(self, Dialog, program, index=0):
@@ -9043,8 +9084,13 @@ class MedicineDialog(object):
 		self.horizontalLayout_2.addWidget(self.frame_11)
 		self.verticalLayout.addWidget(self.frame_9)
 
+		try:
+			self.disconnectSignals()
+		except TypeError:...
 		self.linkSignals(Dialog, program)
 		self.retranslateUi(Dialog)
+			
+
 		if index == 0:
 			self.comboBox.setEnabled(False)
 			self.comboBox_2.setEnabled(False)
@@ -9052,13 +9098,14 @@ class MedicineDialog(object):
 			self.pushButton_2.setEnabled(False)
 			self.pushButton_3.setEnabled(False)
 			self.pushButton_4.setEnabled(False)
-		elif index == 1:
+		else:
 			self.comboBox.setEnabled(True)
 			self.comboBox_2.setEnabled(True)
 			self.pushButton.setEnabled(True)
 			self.pushButton_2.setEnabled(True)
 			self.pushButton_3.setEnabled(True)
 			self.pushButton_4.setEnabled(True)
+	
 		program.loadMedicines()
 		self.getActualMedicines(program)
 		QtCore.QMetaObject.connectSlotsByName(Dialog)
@@ -9088,8 +9135,8 @@ class MedicineDialog(object):
 	def addElement(self, program):
 		if (item:=self.comboBox.currentText()) != "Choisir un médicament":
 			x = self.comboBox_2.currentText()
-			i = program.core.getMedicineId(self.comboBox.currentText(), x)
-			self.listWidget.addItem(str(i)+"\t"+self.comboBox.currentText())
+			i = program.core.getMedicineId(item, x)
+			self.listWidget.addItem(str(i)+"\t"+item+x)
 	
 	def removeElement(self):
 		self.listWidget.takeItem(self.listWidget.currentRow())
@@ -9102,9 +9149,22 @@ class MedicineDialog(object):
 		if s != None:
 			l = program.core.getMedicaments(s)
 			for i in range(len(lp:=s.medicament.split("/"))-1):
-				#print(lp)
 				self.listWidget.addItem(l[i]+"\t"+lp[i])
+		
+		l1 = program.medicinesList.split("/")
+		print("l1:", l1)
+		if l1 != [""]:
+			for i in range(len(l1)-1):
+				self.listWidget.addItem(str(l1[i].replace("/", ""))+"\t"+program.core.getMedicineFromId(l1[i]))
 
+	def disconnectSignals(self):
+		self.pushButton.clicked.disconnect()
+		self.pushButton_2.clicked.disconnect()
+		self.pushButton_3.clicked.disconnect()
+		self.pushButton_4.clicked.disconnect()
+		self.pushButton_5.clicked.disconnect()
+		
+		self.comboBox.currentIndexChanged.disconnect()
 class SessionInfoDialog(object):
 	def setupUi(self, Dialog, program):
 		Dialog.setObjectName("Dialog")

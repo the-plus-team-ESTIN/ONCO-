@@ -14,7 +14,7 @@ def random_name():
     return s
 
 def random_weight():
-    return round(random()*100, 2)
+    return round(random()*100, 2) + 30
 
 def random_height():
     return int(random()*100+100)
@@ -56,7 +56,7 @@ def random_rh():
 def random_entry_date():
     l = [1]*50+[0]
     if l[randint(0, 50)]:
-        return str(randint(0, 22)+2000)+"-"+str(randint(1, 12))+"-"+str(randint(1, 28))
+        return str(randint(0, 22)+2008)+"-"+str(randint(1, 12))+"-"+str(randint(1, 28))
     else:
         return datetime.date.today().isoformat()
 
@@ -98,10 +98,9 @@ if __name__ == "__main__":
     db  = sqlite3.connect("database.db")
     cr = db.cursor()
 
-    for i in range(30):
+    for i in range(50):
         print(i)
         new_patient(i+1)
-        print(i)
     print(time.time()-t)
     db.commit()
     db.close()
